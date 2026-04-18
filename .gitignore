@@ -1,0 +1,72 @@
+# Flutter
+.dart_tool/
+.packages
+.pub-cache/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.flutter-version
+*.lock
+
+# Android
+*.apk
+*.aab
+*.keystore
+*.jks
+*.dex
+*.class
+*.jar
+android/app/google-services.json
+android/app/src/main/res/google-services.json
+android/.gradle/
+android/build/
+android/app/build/
+android/app/release/
+android/app/debug/
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Podfile.lock
+ios/Flutter/Flutter.podspec
+*.xcuserstate
+
+# Build
+*.hprof
+*.trace
+profile/
+coverage/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Secrets - DO NOT COMMIT
+**/SECRET.md
+.env
+.env.local
+**/key.properties
+**/google-services.json
+**/*.p12
+**/*.mobileprovision
+
+# Backend
+node_modules/
+npm-debug.log
+yarn-error.log
+uploads/
+*.log
+
+# Database
+*.sql.bak
+*.sqlite
+*.sqlite3
+
+# Misc
+*.bak
+*.tmp
+*.swp
+*~

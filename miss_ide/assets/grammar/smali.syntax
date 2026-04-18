@@ -1,0 +1,43 @@
+# Smali 语法定义文件
+# 用于语法高亮和代码分析
+
+# 指令类型
+.directive: .method, .end method, .field, .end field, .class, .super, .source, .annotation, .end annotation
+.register: .register, .local, .end local, .restart local
+.parameter: .param, .end param
+.exception: .catch, .catchall, .end catch
+.line: .line
+
+# 访问修饰符
+.access_modifier: public, private, protected, static, final, abstract, volatile, transient, synchronized, native, bridge, varargs, enum, synthetic
+
+# 操作码
+.opcodes:
+  move, move-object, move-result, move-result-wide, move-exception
+  return-void, return, return-wide, return-object
+  monitor-enter, monitor-exit, check-cast, instance-of
+  array-length, new-array, filled-new-array, filled-new-array-range
+  nop, breakpoint
+  throw, goto, goto/16, goto/32
+  packed-switch, sparse-switch
+  cmpl-float, cmpg-float, cmpl-double, cmpg-double, cmp-long
+  if-eq, if-ne, if-lt, if-ge, if-gt, if-le
+  if-eqz, if-nez, if-ltz, if-gez, if-gtz, if-lez
+  invoke-virtual, invoke-super, invoke-direct, invoke-static
+  invoke-interface, invoke-virtual/range, invoke-super/range
+  invoke-direct/range, invoke-static/range, invoke-interface/range
+
+# 类型描述符
+.type_descriptor: L[a-zA-Z_][a-zA-Z0-9_/$;]*;
+
+# 方法签名
+.method_signature: \([BCDFIJSZ\[\]L]+[BCDFIJSZ\[\]L]*\).*
+
+# 寄存器
+.register: v\d+, p\d+, p\d+\.\.\w+, v\d+\.\.\w+
+
+# 注释
+.comment: #.*$
+
+# 数字
+.number: 0x[0-9a-fA-F]+|\d+[bBcCdDfFlL]?
