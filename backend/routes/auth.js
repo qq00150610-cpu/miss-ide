@@ -315,16 +315,16 @@ router.post('/forgot-password', async (req, res) => {
       return res.json({ message: 'Code already sent, please check your email' });
     }
     
-    const code = generateCode(6);
+    const resetCode = generateCode(6);
     await pool.query(
       'INSERT INTO verification_codes (id, email, code, type, expires_at) VALUES (?, ?, ?, ?, ?)',
-      [uuidv4(), email, code, 'reset', new Date(Date.now() + 15 * 60 * 1000)]
+      [uuidv4(), email, resetCode, 'reset', new Date(Date.now() + 15 * 60 * 1000)]
     );
     
     // Send email
-    // await sendEmail(email, 'Password Reset', `Your reset code is: ${code}`);
+    // await sendEmail(email, 'Password Reset', `Your reset code is: ${resetCode}`);
     
-    res.json({ message: 'Reset code sent', code }); // Remove in production
+    res.json({ message: 'Reset code sent', code: resetCode }); // Remove in production
   } catch (error) {
     console.error('Forgot password error:', error);
     res.status(500).json({ error: 'Failed to send reset code' });
