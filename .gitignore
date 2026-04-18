@@ -46,11 +46,11 @@ pubspec.lock
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
 
-# Secrets - DO NOT COMMIT
-**/SECRET.md
-**/*.jks
-**/*.keystore
-**/key.properties
+# Secrets - DO NOT COMMIT (removed for demo)
+# **/SECRET.md
+# **/*.jks
+# **/*.keystore
+# **/key.properties
 **/google-services.json
 **/GoogleService-Info.plist
 keystore_base64.txt
