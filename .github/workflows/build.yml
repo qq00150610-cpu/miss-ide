@@ -1,0 +1,73 @@
+name: Build Miss IDE
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: miss_ide
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.3'
+          channel: 'stable'
+          cache: true
+      
+      - name: Install dependencies
+        run: flutter pub get
+      
+      - name: Build APK (Unsigned)
+        run: |
+          flutter build apk --release --no-tree-shake-icons || flutter build apk --release
+        continue-on-error: true
+      
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: miss-ide-apk
+          path: miss_ide/build/app/outputs/flutter-apk/app-release.apk
+        if: always()
+
+  build-web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: miss_admin
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.3'
+          channel: 'stable'
+          cache: true
+      
+      - name: Build Web
+        run: |
+          flutter pub get
+          flutter build web --release
+        continue-on-error: true
+      
+      - name: Upload Web
+        uses: actions/upload-artifact@v4
+        with:
+          name: miss-admin-web
+          path: miss_admin/build/web/
+        if: always()
