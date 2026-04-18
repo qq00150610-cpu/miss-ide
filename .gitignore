@@ -1,72 +1,78 @@
-# Flutter
+# Flutter/Dart/Pub related
 .dart_tool/
 .packages
-.pub-cache/
 build/
 .flutter-plugins
 .flutter-plugins-dependencies
-.flutter-version
-*.lock
+.flutter-plugins-dependencies.lock
+pubspec.lock
 
 # Android
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
 *.apk
 *.aab
-*.keystore
-*.jks
-*.dex
-*.class
-*.jar
-android/app/google-services.json
-android/app/src/main/res/google-services.json
-android/.gradle/
-android/build/
-android/app/build/
-android/app/release/
-android/app/debug/
 
 # iOS
-ios/Pods/
-ios/.symlinks/
-ios/Podfile.lock
-ios/Flutter/Flutter.podspec
-*.xcuserstate
+**/ios/**/*.mode1v3
+**/ios/**/*.mode2v3
+**/ios/**/*.moved-aside
+**/ios/**/*.pbxuser
+**/ios/**/*.perspectivev3
+**/ios/**/*sync/
+**/ios/**/.sconsign.dblite
+**/ios/**/.tags*
+**/ios/**/.vagrant/
+**/ios/**/DerivedData/
+**/ios/**/Icon?
+**/ios/**/Pods/
+**/ios/**/.symlinks/
+**/ios/**/profile
+**/ios/**/xcuserdata
+**/ios/.generated/
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
 
-# Build
-*.hprof
-*.trace
-profile/
-coverage/
+# Secrets - DO NOT COMMIT
+**/SECRET.md
+**/*.jks
+**/*.keystore
+**/key.properties
+**/google-services.json
+**/GoogleService-Info.plist
+keystore_base64.txt
 
 # IDE
 .idea/
 .vscode/
 *.iml
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# OS
 .DS_Store
 Thumbs.db
 
-# Secrets - DO NOT COMMIT
-**/SECRET.md
-.env
-.env.local
-**/key.properties
-**/google-services.json
-**/*.p12
-**/*.mobileprovision
+# Test coverage
+coverage/
 
-# Backend
-node_modules/
-npm-debug.log
-yarn-error.log
-uploads/
-*.log
-
-# Database
-*.sql.bak
-*.sqlite
-*.sqlite3
-
-# Misc
-*.bak
+# Temp files
 *.tmp
-*.swp
-*~
+*.temp
